@@ -30,13 +30,13 @@ namespace NonSolutionFiles
 			}
 			var matchesBeforeExcludes = allFilesOnDiskInProjectFolders.Except(allFilesInProjects, StringComparer.OrdinalIgnoreCase);
 
-			var ret = new List<string>();
-			foreach (var matchBeforeExcludes in matchesBeforeExcludes)
-			{
-				var excluded = excludeFilesContaing.Any(excludeFileContaining => matchBeforeExcludes.ToUpper().Contains(excludeFileContaining.ToUpper()));
-				if (!excluded)
-					ret.Add(matchBeforeExcludes);
-			}
+			var ret = matchesBeforeExcludes;
+			//foreach (var matchBeforeExcludes in matchesBeforeExcludes)
+			//{
+			//	var excluded = excludeFilesContaing.Any(excludeFileContaining => matchBeforeExcludes.ToUpper().Contains(excludeFileContaining.ToUpper()));
+			//	if (!excluded)
+			//		ret.Add(matchBeforeExcludes);
+			//}
 			return ret;
 		}
 	}
